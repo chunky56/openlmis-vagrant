@@ -23,4 +23,4 @@
     vagrant up
     ```
 
-That's it! It may take a while for vagrant to finish creating the demo machine. After it finishes, go to http://192.168.33.210:9092/ to access the OpenLMIS web application.
+That's it! It may take a while for vagrant to finish creating the demo machine. After it finishes, go to http://192.168.34.209:32770/ to access the OpenLMIS web application.
