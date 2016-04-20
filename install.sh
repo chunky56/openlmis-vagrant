@@ -11,3 +11,7 @@ git checkout demo-seed
 
 echo "Get OpenLMIS Manager from repository"
 git clone https://github.com/joshzamor/open-lmis-manager.git
+
+echo "Create OpenLMIS db directory for Docker volume"
+cd ..
+mkdir open-lmis-db

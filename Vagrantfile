@@ -38,7 +38,7 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
+  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: false
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -70,7 +70,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "docker" do |d|
     d.build_image "/home/vagrant/open-lmis-docker/docker/base", args: "-t 'chunky56/openlmis_base:latest'"
     d.build_image "/home/vagrant/open-lmis-docker", args: "-t 'chunky56/openlmis:demo'"
-    d.run "chunky56/openlmis:demo", args: "-d -p 32769:5432 -p 32770:8080 --name openlmis-demo"
+    d.run "chunky56/openlmis:demo", args: "-d -p 32769:5432 -p 32770:8080 -v /home/vagrant/open-lmis-db/:/open-lmis-db:z --name openlmis-demo"
   end
 
   config.vm.provision "shell", inline: "echo Running OpenLMIS. Navigate to http://192.168.34.209:32770/ to continue."
