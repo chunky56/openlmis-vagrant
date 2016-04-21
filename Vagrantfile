@@ -38,7 +38,11 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: false
+  if OS.windows? then
+    config.vm.synced_folder ".", "/home/vagrant/sync", type: "smb"
+  else
+    config.vm.synced_folder ".", "/home/vagrant/sync", disabled: false
+  end
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -74,4 +78,22 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", inline: "echo Running OpenLMIS. Navigate to http://192.168.34.209:32770/ to continue."
+end
+
+module OS
+    def OS.windows?
+        (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.mac?
+        (/darwin/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.unix?
+        !OS.windows?
+    end
+
+    def OS.linux?
+        OS.unix? and not OS.mac?
+    end
 end
