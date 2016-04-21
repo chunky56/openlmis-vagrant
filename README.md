@@ -7,8 +7,8 @@
 # Instructions
 
 1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
-  * For Windows, select the download link, **VirtualBox for Windows hosts x86/amd64**
-  * For Mac, select the download link, **VirtualBox for OS X hosts amd64**
+  * For Windows, select the download link, **VirtualBox 5.x for Windows hosts x86/amd64**
+  * For Mac, select the download link, **VirtualBox 5.x for OS X hosts amd64**
 2. Install [Vagrant](https://www.vagrantup.com/downloads.html).
   * For Windows, select the **Universal (32 and 64-bit)** install under the Windows section
   * For Mac, select  **Universal (32 and 64-bit)** under the MAC OS X section
